@@ -1,28 +1,50 @@
-.text-orange {
-  color: #e07a1c !important;
+.title {
+  font-size: 2.5rem;
+  color: #ff7f27;
 }
 
-.btn-orange,
-.btn-orange:focus {
-  background-color: #e07a1c !important;
-  border-color: #e07a1c !important;
-  color: #fff !important;
-}
-.btn-orange:hover {
-  background-color: #c36b1e !important;
-  border-color: #c36b1e !important;
-  color: #fff !important;
+.input-monto {
+  border-color: #007bff;
+  font-size: 1.2rem;
+  padding: 12px;
 }
 
-.btn-outline-orange {
-  color: #e07a1c !important;
-  border-color: #e07a1c !important;
-  background-color: #fff !important;
+.label {
+  font-weight: bold;
+  color: #2f79c9;
 }
-.btn-outline-orange:hover,
-.btn-outline-orange.active,
-.btn-outline-orange:focus {
-  background-color: #e07a1c !important;
-  color: #fff !important;
-  border-color: #e07a1c !important;
+
+.input-monto:focus {
+  border-color: #ff7f27;
+  box-shadow: 0 0 5px rgba(255, 127, 39, 0.5);
+}
+
+.circle-btn {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #ff7f27;
+  color: white;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.circle-btn:hover {
+  background-color: #ff6347;
+}
+
+.payment-btn {
+  background-color: white;
+  color: #ff7f27;
+  border: 2px solid #ff7f27;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.payment-btn:hover {
+  background-color: #ff7f27;
+  color: white;
 }
