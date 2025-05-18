@@ -4,7 +4,7 @@ import ChatWindow from './ChatWindow';
 
 const Chatbot = () => {
   const [showChat, setShowChat] = useState(false);
-
+  //Visibilidad
   const handleButtonClick = () => {
     setShowChat(true); 
   };

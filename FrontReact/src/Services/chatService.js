@@ -8,6 +8,7 @@ const hardcodedResponses = {
   "default": "Gracias por tu mensaje. Para más información puedes visitar nuestro sitio web o contactarnos al 02-123-4567."
 };
 
+//pregunta inicial
 const hardcodedOptions = [
   "¿Cómo puedo donar alimentos?",
   "Quiero ser voluntario",

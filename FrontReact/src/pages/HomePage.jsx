@@ -17,7 +17,6 @@ const HomePage = () => {
       <CTA />
       <Chatbot />
     </>
-      // bot 
   );
 };
 

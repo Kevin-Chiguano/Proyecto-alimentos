@@ -9,6 +9,7 @@ import PropTypes from 'prop-types';
  * @param {Function} props.onClick - Función al hacer clic
  * @param {boolean} props.isVisible - Controla la visibilidad del botón
  */
+// visibilidad
 const FloatingButton = ({ onClick, isVisible }) => {
   return (
     <Button
