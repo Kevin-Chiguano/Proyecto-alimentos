@@ -1,5 +1,3 @@
-// src/services/chatService.js
-
 // Datos quemados para pruebas
 const hardcodedResponses = {
   "hola": "¡Hola! Bienvenido al Banco de Alimentos Quito. ¿En qué puedo ayudarte hoy?",

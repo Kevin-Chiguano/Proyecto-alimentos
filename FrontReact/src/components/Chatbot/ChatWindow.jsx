@@ -11,7 +11,7 @@ const ChatWindow = ({ show, onHide }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  // Cargar datos iniciales
+  
   useEffect(() => {
     if (show) {
       const loadInitialData = async () => {

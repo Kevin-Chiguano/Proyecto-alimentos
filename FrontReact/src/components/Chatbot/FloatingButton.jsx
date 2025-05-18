@@ -12,9 +12,9 @@ import PropTypes from 'prop-types';
 const FloatingButton = ({ onClick, isVisible }) => {
   return (
     <Button
-      className="floating-button" // Usa la clase definida en floating-button.css
+      className="floating-button" 
       style={{
-        display: isVisible ? 'flex' : 'none', // Control de visibilidad
+        display: isVisible ? 'flex' : 'none', 
       }}
       onClick={onClick}
     >
