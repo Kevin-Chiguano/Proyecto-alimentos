@@ -1,8 +1,12 @@
 import React from 'react';
+import { useEffect } from 'react';
 import './Blog2.css'; // Importamos los estilos personalizados
 
 //Blog2
 const Blog2 = () => {
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, []);
   return (
     <div className="blog-page">
       <h1 className="blog-title">

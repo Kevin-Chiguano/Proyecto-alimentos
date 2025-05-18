@@ -1,8 +1,21 @@
+/* Reset básico */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/* Título principal */
 .title {
   font-size: 2.5rem;
   color: #ff7f27;
+  text-align: center;
 }
 
+/* Campo de monto */
 .input-monto {
   border-color: #007bff;
   font-size: 1.2rem;
@@ -17,8 +30,10 @@
 .input-monto:focus {
   border-color: #ff7f27;
   box-shadow: 0 0 5px rgba(255, 127, 39, 0.5);
+  outline: none;
 }
 
+/* Botones circulares de cantidad predefinida */
 .circle-btn {
   width: 60px;
   height: 60px;
@@ -35,6 +50,7 @@
   background-color: #ff6347;
 }
 
+/* Botones de método de pago */
 .payment-btn {
   background-color: white;
   color: #ff7f27;
@@ -47,4 +63,129 @@
 .payment-btn:hover {
   background-color: #ff7f27;
   color: white;
+}
+
+/* Contenedor principal */
+.donation-container .row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap; /* Permite que se apilen en pantallas pequeñas */
+}
+
+/* Columnas */
+.col-md-4,
+.col-md-6 {
+  flex: 1 1 auto;
+  min-width: 300px;
+}
+
+/* Imagen */
+.img-fluid {
+  max-width: 100%;
+  height: auto;
+}
+
+.rounded {
+  border-radius: 20px;
+}
+
+.position-relative {
+  position: relative;
+}
+
+/* Estilo del texto encima de la imagen */
+.overlay-text {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width:95%;
+  left: 50%;
+  transform: translateX(-50%);
+  max-width: none;
+  padding: 15px;
+  background-color: rgba(255, 255, 255, 0.9); /* Fondo blanco semitransparente */
+  font-size: 0.9rem;
+  color: #333;
+  text-align: center;
+  z-index: 2;
+}
+
+/* Responsividad del texto encima de la imagen */
+@media (max-width: 576px) {
+  .overlay-text {
+    font-size: 0.8rem;
+    max-width: 100%;
+    padding: 10px;
+  }
+}
+
+/* Responsividad */
+@media (max-width: 991px) {
+  .title {
+    font-size: 2rem;
+  }
+
+  .input-monto {
+    font-size: 1rem;
+    padding: 10px;
+  }
+
+  .circle-btn {
+    width: 50px;
+    height: 50px;
+    font-size: 1rem;
+  }
+
+  .payment-btn {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .donation-container .row {
+    flex-direction: column-reverse;
+    text-align: center;
+  }
+
+  .col-md-4,
+  .col-md-6 {
+    max-width: 100%;
+  }
+
+  .circle-btn {
+    margin: 5px;
+  }
+
+  .predefined-amounts {
+    justify-content: center;
+  }
+
+  .payment-method-grid .col-6 {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+/* Ajustes específicos para móviles muy pequeños */
+@media (max-width: 480px) {
+  .title {
+    font-size: 1.6rem;
+  }
+
+  .input-monto {
+    font-size: 0.95rem;
+    padding: 8px;
+  }
+
+  .circle-btn {
+    width: 45px;
+    height: 45px;
+    font-size: 0.9rem;
+  }
+
+  .payment-btn {
+    font-size: 0.75rem;
+    padding: 8px;
+  }
 }

@@ -1,12 +1,18 @@
 import React from 'react';
-import './Blog1.css'; 
+import './Blog1.css'; // Asegúrate de tener este archivo en la misma carpeta
 
 const Blog1 = () => {
+  React.useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div className="blog-page">
+      {/* Título */}
       <h1 className="blog-title">
         <span className="blog-title-left">Un gesto pequeño. Un impacto enorme</span>
       </h1>
+
+      {/* Contenido (Texto e Imagen) */}
       <div className="content-container">
         <div className="text-section">
           <p>
@@ -20,10 +26,10 @@ const Blog1 = () => {
           </p>
           <h3>¿Cómo donar?</h3>
           <p>
-            El Banco de Alimentos Quito compra y recolecta alimento de diferentes donantes, lo clasifica y almacena en un área con capacidad para 300 toneladas en abasto y 380 m3 de cámaras de frío y congelación con la ayuda de más de 700 voluntarios por mes, entregando alimento a más de 80 organizaciones sociales legalmente constituidas.
+            El Banco de Alimentos Quito compra y recolecta alimento de diferentes donantes, lo clasifica y almacena en un área con capacidad para 300 toneladas en abasto y 380 m³ de cámaras de frío y congelación con la ayuda de más de 700 voluntarios por mes, entregando alimento a más de 80 organizaciones sociales legalmente constituidas.
           </p>
           <ul>
-            <li><a href="#donar " target="_blank" rel="noopener noreferrer">Donar Alimentos</a></li>
+            <li><a href="#donar" target="_blank" rel="noopener noreferrer">Donar Alimentos</a></li>
             <li><a href="#donar-dinero" target="_blank" rel="noopener noreferrer">Donar Dinero</a></li>
             <li><a href="#voluntariado" target="_blank" rel="noopener noreferrer">Voluntariado</a></li>
           </ul>
@@ -31,8 +37,14 @@ const Blog1 = () => {
             Ayúdanos a combatir el hambre en Ecuador. Donar no es caridad, es responsabilidad.
           </p>
         </div>
+
+        {/* Sección de la imagen */}
         <div className="image-section">
-          <img src="https://live.staticflickr.com/65535/52212750073_538a12d057_z.jpg" alt="Voluntarios distribuyendo alimentos" className="blog-image" />
+          <img
+            src="https://live.staticflickr.com/65535/52212750073_538a12d057_z.jpg "
+            alt="Voluntarios distribuyendo alimentos"
+            className="blog-image"
+          />
         </div>
       </div>
     </div>

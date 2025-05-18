@@ -14,8 +14,8 @@
   margin-bottom: 2rem;
 }
 
-.blog-title-left {
-   color: #ff7f27; /* Naranja */
+.blog-title {
+   color: #f39130; /* Naranja */
 }
 
 .content-container {
@@ -56,4 +56,23 @@
 
 .cta-button:hover {
   background-color: #ff6347;
+}
+@media (max-width: 900px) {
+  .content-container {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  .image-section {
+    order: -1; /* Mueve la imagen entre el título y el texto */
+  }
+  .text-section,
+  .image-section {
+    width: 100%;
+  }
+  .blog-title {
+    font-size: 2rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
 }

@@ -1,19 +1,19 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom"; 
 import './Donaciones.css';
 
 const Donaciones = () => {
   const [monto, setMonto] = useState('$');
   const [metodoPago, setMetodoPago] = useState('');
 
+  const navigate = useNavigate();
+
   const handleMontoChange = (e) => {
     let valor = e.target.value;
 
-    // Si no empieza con $, lo añadimos
     if (!valor.startsWith('$')) {
       valor = '$' + valor.replace(/[^0-9]/g, '');
     } else {
-      // Solo permitimos números después del $
       valor = '$' + valor.slice(1).replace(/[^0-9]/g, '');
     }
 
@@ -30,14 +30,29 @@ const Donaciones = () => {
 
   return (
     <div className="container py-5 donation-container">
-      <div className="row justify-content-center">
-        <div className="col-md-8 col-lg-6">
+      <div className="row align-items-center justify-content-center">
+        {/* Imagen con texto encima */}
+        <div className="col-12 col-md-4 text-center order-1 order-md-0 mb-4 mb-md-0 position-relative">
+          <img
+            src="https://live.staticflickr.com/65535/52212750458_4ffd5a939e.jpg"
+            alt="Donación"
+            className="img-fluid rounded shadow-image"
+          />
+
+          {/* Texto sobre la imagen */}
+          <div className="overlay-text">
+            <p className="mb-0">
+              Cada día, muchas personas necesitan alimentos. Con tu donación, puedes marcar la diferencia en sus vidas.
+            </p>
+          </div>
+        </div>
+
+        {/* Formulario */}
+        <div className="col-12 col-md-6 order-0 order-md-1">
           <h1 className="text-center title">Realiza tu donación</h1>
 
           <div className="form-container mt-4">
-            <label htmlFor="monto" className="form-label label">
-              Monto
-            </label>
+            <label htmlFor="monto" className="form-label label">Monto</label>
             <input
               type="text"
               id="monto"
@@ -87,11 +102,9 @@ const Donaciones = () => {
                 </button>
               </div>
               <div className="col-6">
-                <button
-                  value="TRANSFERENCIA"
-                  onClick={handleMetodoPagoChange}
-                  className={`payment-btn form-control ${metodoPago === 'TRANSFERENCIA' ? 'selected' : ''}`}
-                >
+                <button 
+                onClick={() => navigate("/subir-comprobante")}
+                className={`payment-btn form-control ${metodoPago === 'TRANSFERENCIA' ? 'selected' : ''}`}>
                   TRANSFERENCIA
                 </button>
               </div>
