@@ -1,0 +1,228 @@
+/* Mantenemos los estilos base similares a DonadorRecurrente pero con ajustes */
+.pago-tarjeta-bg {
+  background-color: #f8f9fa;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.pago-tarjeta-content {
+  display: flex;
+  max-width: 1200px;
+  width: 100%;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.pago-tarjeta-form-container {
+  flex: 1;
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.pago-tarjeta-titulo {
+  color: #e07a1c;
+  font-size: 2.2rem;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+}
+
+.pago-tarjeta-descripcion {
+  color: #495057;
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+/* Formulario de tarjeta mejorado */
+.credit-card-form {
+  margin-top: 1rem;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #495057;
+  font-weight: 600;
+}
+
+.form-group input, .donation-amount-select {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border: 1px solid #ced4da;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.form-group input:focus, .donation-amount-select:focus {
+  border-color: #e07a1c;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(224, 122, 28, 0.2);
+}
+
+.donation-amount-select {
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23e07a1c'%3e%3cpath d='M7 10l5 5 5-5z'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 1em;
+}
+
+.form-row {
+  display: flex;
+  gap: 1rem;
+}
+
+.form-row .form-group {
+  flex: 1;
+}
+
+/* Botón de submit */
+.pago-tarjeta-submit-btn {
+  background-color: #e07a1c;
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.pago-tarjeta-submit-btn:hover:not(:disabled) {
+  background-color: #d56f10;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(224, 122, 28, 0.3);
+}
+
+.pago-tarjeta-submit-btn:disabled {
+  background-color: #adb5bd;
+  cursor: not-allowed;
+}
+
+/* Mensaje de éxito */
+.pago-tarjeta-success-message {
+  background-color: #d4edda;
+  color: #155724;
+  padding: 1rem;
+  border-radius: 5px;
+  margin-top: 1rem;
+  text-align: center;
+  font-weight: 500;
+}
+
+/* Sección de imagen */
+.pago-tarjeta-image-section {
+  flex: 1;
+  position: relative;
+}
+
+.image-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.pago-tarjeta-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.image-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+  padding: 2rem;
+  color: white;
+}
+
+.overlay-content h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #fff;
+}
+
+.overlay-content p {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.payment-methods {
+  display: flex;
+  gap: 1rem;
+  font-size: 2rem;
+  color: white;
+}
+
+/* Franja naranja */
+.pago-tarjeta-franja {
+  background-color: #e07a1c;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  width: 100%;
+  max-width: 1200px;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  font-weight: 600;
+  margin-top: -1px;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .pago-tarjeta-content {
+    flex-direction: column;
+  }
+  
+  .pago-tarjeta-form-container,
+  .pago-tarjeta-image-section {
+    padding: 2rem;
+  }
+  
+  .image-container {
+    height: 300px;
+  }
+}
+
+@media (max-width: 576px) {
+  .pago-tarjeta-titulo {
+    font-size: 1.8rem;
+  }
+  
+  .pago-tarjeta-form-container, 
+  .pago-tarjeta-image-section {
+    padding: 1.5rem;
+  }
+  
+  .form-row {
+    flex-direction: column;
+    gap: 0;
+  }
+  
+  .image-overlay {
+    padding: 1.5rem;
+  }
+  
+  .payment-methods {
+    font-size: 1.5rem;
+  }
+}

@@ -1,4 +1,3 @@
-/* DonadorRecurrente.css */
 .donador-recurrente-bg {
   background-color: #f8f9fa;
   min-height: 100vh;
@@ -72,6 +71,16 @@
   margin-top: 1rem;
 }
 
+.donador-dropzone.drag-active {
+  background-color: rgba(224, 122, 28, 0.1);
+  border-color: #d56f10;
+}
+
+.donador-dropzone.file-selected {
+  background-color: rgba(224, 122, 28, 0.1);
+  border-color: #d56f10;
+}
+
 .donador-dropzone:hover {
   background-color: rgba(224, 122, 28, 0.1);
 }
@@ -91,7 +100,46 @@
   display: none;
 }
 
-/* Botón */
+/* Botón de submit */
+.donador-submit-btn {
+  background-color: #e07a1c;
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.donador-submit-btn:hover {
+  background-color: #d56f10;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(224, 122, 28, 0.3);
+}
+
+.donador-submit-btn:disabled {
+  background-color: #adb5bd;
+  transform: none;
+  box-shadow: none;
+  cursor: not-allowed;
+}
+
+/* Mensaje de éxito */
+.donador-success-message {
+  background-color: #d4edda;
+  color: #155724;
+  padding: 1rem;
+  border-radius: 5px;
+  margin-top: 1rem;
+  text-align: center;
+  font-weight: 500;
+}
+
+/* Botón Volver */
 .donador-recurrente-btn {
   background-color: #e07a1c;
   color: white;
@@ -112,35 +160,46 @@
   box-shadow: 0 5px 15px rgba(224, 122, 28, 0.3);
 }
 
-/* Testimonio */
+/* Testimonio - Estructura mejorada */
 .donador-recurrente-testimonio {
   flex: 1;
   background-color: #f1f1f1;
   padding: 3rem;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
 }
 
-.donador-recurrente-img-wrap {
-  position: relative;
+.donador-testimonio-content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.donador-img-container {
+  width: 100%;
+  height: 250px;
+  margin-top: 1.5rem;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
 .donador-recurrente-img {
   width: 100%;
-  max-width: 350px;
-  border-radius: 10px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 .donador-recurrente-quote {
   background: white;
   padding: 2rem;
   border-radius: 10px;
-  margin-top: 1rem;
   position: relative;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   font-style: italic;
   color: #495057;
+  width: 100%;
 }
 
 .donador-recurrente-quote-mark {
@@ -183,10 +242,11 @@
   
   .donador-recurrente-testimonio {
     padding: 2rem;
+    order: -1;
   }
   
-  .donador-recurrente-img {
-    max-width: 100%;
+  .donador-img-container {
+    height: 200px;
   }
 }
 
@@ -198,5 +258,17 @@
   .donador-recurrente-textos, 
   .donador-recurrente-testimonio {
     padding: 1.5rem;
+  }
+  
+  .donador-dropzone {
+    padding: 1.5rem;
+  }
+  
+  .donador-recurrente-quote {
+    padding: 1.5rem;
+  }
+  
+  .donador-img-container {
+    height: 180px;
   }
 }
