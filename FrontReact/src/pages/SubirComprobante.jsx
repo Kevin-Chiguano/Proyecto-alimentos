@@ -244,7 +244,7 @@ const SubirComprobante = () => {
       return;
     }
     // Aquí puedes hacer el envío, luego redirigir
-    navigate("/gracias-mensaje");
+    navigate("/donacion-exitosa");
   };
 
   // DeUna handlers
@@ -298,7 +298,7 @@ const SubirComprobante = () => {
       return;
     }
     // Aquí puedes hacer el envío, luego redirigir
-    navigate("/gracias-mensaje");
+    navigate("/donacion-exitosa");
   };
 
   // Switchers
