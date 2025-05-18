@@ -1,0 +1,202 @@
+/* DonadorRecurrente.css */
+.donador-recurrente-bg {
+  background-color: #f8f9fa;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.donador-recurrente-content {
+  display: flex;
+  max-width: 1200px;
+  width: 100%;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.donador-recurrente-textos {
+  flex: 1;
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.donador-recurrente-titulo {
+  color: #e07a1c;
+  font-size: 2.2rem;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+}
+
+.donador-recurrente-descripcion {
+  color: #495057;
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+/* Sección PDF */
+.donador-pdf-section {
+  margin: 2rem 0;
+}
+
+.donador-pdf-link {
+  display: inline-block;
+  color: #e07a1c;
+  font-weight: 600;
+  text-decoration: none;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid #e07a1c;
+  padding-bottom: 0.3rem;
+  transition: all 0.3s ease;
+}
+
+.donador-pdf-link:hover {
+  color: #d56f10;
+  border-bottom-color: #d56f10;
+}
+
+.donador-dropzone {
+  border: 2px dashed #e07a1c;
+  border-radius: 10px;
+  padding: 2rem;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background-color: rgba(224, 122, 28, 0.05);
+  margin-top: 1rem;
+}
+
+.donador-dropzone:hover {
+  background-color: rgba(224, 122, 28, 0.1);
+}
+
+.donador-dropzone p {
+  color: #e07a1c;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.donador-dropzone small {
+  color: #6c757d;
+  font-size: 0.9rem;
+}
+
+.donador-file-input {
+  display: none;
+}
+
+/* Botón */
+.donador-recurrente-btn {
+  background-color: #e07a1c;
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  align-self: flex-start;
+  margin-top: 1rem;
+}
+
+.donador-recurrente-btn:hover {
+  background-color: #d56f10;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(224, 122, 28, 0.3);
+}
+
+/* Testimonio */
+.donador-recurrente-testimonio {
+  flex: 1;
+  background-color: #f1f1f1;
+  padding: 3rem;
+  display: flex;
+  align-items: center;
+}
+
+.donador-recurrente-img-wrap {
+  position: relative;
+}
+
+.donador-recurrente-img {
+  width: 100%;
+  max-width: 350px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.donador-recurrente-quote {
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  margin-top: 1rem;
+  position: relative;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  font-style: italic;
+  color: #495057;
+}
+
+.donador-recurrente-quote-mark {
+  color: #e07a1c;
+  font-size: 3rem;
+  line-height: 1;
+  position: absolute;
+  top: -1rem;
+  left: 1rem;
+  font-family: serif;
+}
+
+.donador-recurrente-autor {
+  display: block;
+  margin-top: 1rem;
+  font-weight: 600;
+  font-style: normal;
+  color: #e07a1c;
+}
+
+/* Franja naranja */
+.donador-recurrente-franja {
+  background-color: #e07a1c;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  width: 100%;
+  max-width: 1200px;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  font-weight: 600;
+  margin-top: -1px;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .donador-recurrente-content {
+    flex-direction: column;
+  }
+  
+  .donador-recurrente-testimonio {
+    padding: 2rem;
+  }
+  
+  .donador-recurrente-img {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 576px) {
+  .donador-recurrente-titulo {
+    font-size: 1.8rem;
+  }
+  
+  .donador-recurrente-textos, 
+  .donador-recurrente-testimonio {
+    padding: 1.5rem;
+  }
+}

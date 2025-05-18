@@ -6,7 +6,8 @@ import Footer from './components/Footer'
 import './index.css'
 import "bootstrap/dist/css/bootstrap.min.css"
 import DonacionExitosa from "./pages/DonacionExitosa"
-import GraciasMensaje from "./pages/GraciasMensaje";
+import GraciasMensaje from "./pages/GraciasMensaje"
+import DonadorRecurrente from "./pages/DonadorRecurrente"
 
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
           <Route path="/donaciones" element={<Donaciones />} />
           <Route path="/donacion-exitosa" element={<DonacionExitosa />} />
           <Route path="/gracias-mensaje" element={<GraciasMensaje />} />
+          <Route path="/donador-recurrente" element={<DonadorRecurrente />} />
         </Routes>
       </main>
       <Footer />
