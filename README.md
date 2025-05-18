@@ -13,6 +13,8 @@ npm install bootstrap react-bootstrap @popperjs/core react-icons react-router-do
 npm init -y                 //Inicializar el proyecto Node.js
 npm install express         //npm install express
 node index.js               // Ejecuta el programa
+npm install mongoose       // mongoose
+npm install xlsx          // para habilitar el excel 
 
 
 
