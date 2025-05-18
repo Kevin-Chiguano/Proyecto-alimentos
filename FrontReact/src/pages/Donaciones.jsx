@@ -1,75 +1,95 @@
-import { Container, Row, Col, Form, Button, Card, ListGroup } from 'react-bootstrap'
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import './Donaciones.css';
+
+const DONACION_SUGERIDA = [5, 10, 50, 100];
 
 const Donaciones = () => {
+  const [monto, setMonto] = useState("");
+  const [metodo, setMetodo] = useState("");
+  const navigate = useNavigate();
+
+  const handleMontoClick = (valor) => {
+    setMonto(valor);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    navigate("/donacion-exitosa");
+  };
+
   return (
-    <section className="py-5">
-      <Container>
-        <Row className="justify-content-center">
-          <Col lg={8}>
-            <h1 className="text-center mb-5">Realiza tu donación</h1>
-            
-            <Card className="shadow-sm mb-4">
-              <Card.Body>
-                <Form>
-                  <Form.Group className="mb-4">
-                    <Form.Label className="fw-bold">Monto</Form.Label>
-                    <Form.Control 
-                      type="number" 
-                      placeholder="$" 
-                      className="py-3 fs-4"
-                    />
-                  </Form.Group>
+    <div className="container py-5">
+      <h1 className="mb-4 text-center text-orange">Realiza tu donación</h1>
+      <form className="mx-auto p-4 rounded shadow bg-white" style={{maxWidth: 500}} onSubmit={handleSubmit}>
+        <div className="mb-3">
+          <label className="form-label" htmlFor="monto">
+            Monto
+          </label>
+          <input
+            id="monto"
+            className="form-control"
+            type="number"
+            placeholder="$"
+            min={1}
+            value={monto}
+            onChange={(e) => setMonto(e.target.value)}
+          />
+        </div>
+        <div className="mb-4 d-flex gap-2 flex-wrap">
+          {DONACION_SUGERIDA.map((valor) => (
+            <button
+              type="button"
+              key={valor}
+              className={`btn btn-outline-orange${parseInt(monto) === valor ? " active" : ""}`}
+              onClick={() => handleMontoClick(valor)}
+            >
+              ${valor}
+            </button>
+          ))}
+        </div>
+        <div className="mb-3">
+          <label className="form-label">Método de pago</label>
+          <div className="d-flex gap-2 flex-wrap">
+            <button
+              type="button"
+              className={`btn btn-outline-secondary${metodo === "credito" ? " active" : ""}`}
+              onClick={() => setMetodo("credito")}
+            >
+              TARJETA DE CRÉDITO
+            </button>
+            <button
+              type="button"
+              className={`btn btn-outline-secondary${metodo === "debito" ? " active" : ""}`}
+              onClick={() => setMetodo("debito")}
+            >
+              TARJETA DÉBITO
+            </button>
+            <button
+              type="button"
+              className={`btn btn-outline-secondary${metodo === "paypal" ? " active" : ""}`}
+              onClick={() => setMetodo("paypal")}
+            >
+              PAYPAL
+            </button>
+            <button
+              type="button"
+              className={`btn btn-outline-secondary${metodo === "transferencia" ? " active" : ""}`}
+              onClick={() => setMetodo("transferencia")}
+            >
+              TRANSFERENCIA
+            </button>
+          </div>
+        </div>
+        <button
+          type="submit"
+          className="btn btn-orange w-100"
+        >
+          Donar ahora
+        </button>
+      </form>
+    </div>
+  );
+};
 
-                  <div className="d-flex flex-wrap gap-3 mb-4">
-                    {[5, 10, 50, 100].map((monto) => (
-                      <Button 
-                        key={monto}
-                        variant="outline-warning" 
-                        className="flex-grow-1 py-2"
-                      >
-                        ${monto}
-                      </Button>
-                    ))}
-                  </div>
-
-                  <Form.Group className="mb-4">
-                    <Form.Label className="fw-bold">Método de pago</Form.Label>
-                    <ListGroup>
-                      <ListGroup.Item action className="py-3 fw-bold">
-                        TARJETA DE CRÉDITO
-                      </ListGroup.Item>
-                      <ListGroup.Item action className="py-3 fw-bold">
-                        TARJETA DÉBITO
-                      </ListGroup.Item>
-                      <ListGroup.Item action className="py-3">
-                        PAYPAL
-                      </ListGroup.Item>
-                      <ListGroup.Item action className="py-3">
-                        TRANSFERENCIA
-                      </ListGroup.Item>
-                    </ListGroup>
-                  </Form.Group>
-
-                  <Button variant="warning" size="lg" className="w-100 py-3">
-                    Donar ahora
-                  </Button>
-                </Form>
-              </Card.Body>
-            </Card>
-
-            <Row className="bg-light py-4 rounded text-center mt-5">
-              <Col>
-                <h3 className="text-warning">GRACIAS A TU AYUDA</h3>
-                <h4 className="fw-bold">LOGRAMOS ESTOS RESULTADOS</h4>
-                <p className="display-6 text-warning mt-3">+230,000 kilos</p>
-                <p>de alimentos entregados mensualmente</p>
-              </Col>
-            </Row>
-          </Col>
-        </Row>
-      </Container>
-    </section>
-  )
-}
-
-export default Donaciones
+export default Donaciones;

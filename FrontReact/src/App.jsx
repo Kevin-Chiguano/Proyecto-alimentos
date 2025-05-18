@@ -4,6 +4,9 @@ import Donaciones from './pages/Donaciones'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import './index.css'
+import "bootstrap/dist/css/bootstrap.min.css"
+import DonacionExitosa from "./pages/DonacionExitosa";
+
 
 function App() {
   return (
@@ -13,6 +16,7 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/donaciones" element={<Donaciones />} />
+          <Route path="/donacion-exitosa" element={<DonacionExitosa />} />
         </Routes>
       </main>
       <Footer />
