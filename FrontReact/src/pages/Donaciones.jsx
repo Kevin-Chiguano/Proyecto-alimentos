@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom"; 
+import { useNavigate } from "react-router-dom";
 import './Donaciones.css';
 
 const Donaciones = () => {
@@ -22,6 +22,12 @@ const Donaciones = () => {
 
   const seleccionarMonto = (valor) => {
     setMonto(`$${valor}`);
+  };
+
+  // Redirecciona a PaginaPagoTarjeta.jsx para CRÉDITO y DÉBITO
+  const handleMetodoPagoTarjeta = (tipo) => {
+    setMetodoPago(tipo);
+    navigate("/paginapagotarjeta");
   };
 
   const handleMetodoPagoChange = (e) => {
@@ -76,8 +82,9 @@ const Donaciones = () => {
             <div className="payment-method-grid row g-3 mt-2">
               <div className="col-6">
                 <button
+                  type="button"
                   value="TARJETA DE CRÉDITO"
-                  onClick={handleMetodoPagoChange}
+                  onClick={() => handleMetodoPagoTarjeta('TARJETA DE CRÉDITO')}
                   className={`payment-btn form-control ${metodoPago === 'TARJETA DE CRÉDITO' ? 'selected' : ''}`}
                 >
                   TARJETA DE CRÉDITO
@@ -85,8 +92,9 @@ const Donaciones = () => {
               </div>
               <div className="col-6">
                 <button
+                  type="button"
                   value="TARJETA DÉBITO"
-                  onClick={handleMetodoPagoChange}
+                  onClick={() => handleMetodoPagoTarjeta('TARJETA DÉBITO')}
                   className={`payment-btn form-control ${metodoPago === 'TARJETA DÉBITO' ? 'selected' : ''}`}
                 >
                   TARJETA DÉBITO
@@ -103,8 +111,8 @@ const Donaciones = () => {
               </div>
               <div className="col-6">
                 <button 
-                onClick={() => navigate("/subir-comprobante")}
-                className={`payment-btn form-control ${metodoPago === 'TRANSFERENCIA' ? 'selected' : ''}`}>
+                  onClick={() => navigate("/subir-comprobante")}
+                  className={`payment-btn form-control ${metodoPago === 'TRANSFERENCIA' ? 'selected' : ''}`}>
                   TRANSFERENCIA
                 </button>
               </div>

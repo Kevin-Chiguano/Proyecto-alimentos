@@ -10,6 +10,7 @@ import "bootstrap/dist/css/bootstrap.min.css"
 import DonacionExitosa from "./pages/DonacionExitosa"
 import GraciasMensaje from "./pages/GraciasMensaje"
 import SubirComprobante from "./pages/SubirComprobante";
+import PaginaPagoTarjeta from "./pages/PaginaPagoTarjeta";
 import Chatbot from './components/Chatbot/Chatbot';
 
 
@@ -26,6 +27,7 @@ function App() {
           <Route path="/donacion-exitosa" element={<DonacionExitosa />} />
           <Route path="/gracias-mensaje" element={<GraciasMensaje />} />
           <Route path="/subir-comprobante" element={<SubirComprobante />} />
+          <Route path="/paginapagotarjeta" element={<PaginaPagoTarjeta />} />
         </Routes>
       </main>
       <Footer />
