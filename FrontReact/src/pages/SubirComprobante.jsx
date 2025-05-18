@@ -1,7 +1,9 @@
 import React, { useRef, useState } from "react"
+import { useNavigate } from "react-router-dom"
 import baqImg from "../assets/baq-datos-transferencia.jpg.jpg"
 import qrImg from "../assets/qr-deuna.jpg"
 import "./SubirComprobante.css";
+
 
 const FormularioTransferencia = ({
   form,
@@ -89,10 +91,19 @@ const FormularioTransferencia = ({
 );
 
 const FormularioDeUna = ({
+  comprobante,
   onSwitchTransfer,
-  handleSubmitQR,
+  handleChange,
+  handleFileChange,
+  handleDragOver,
+  handleDragLeave,
+  handleDrop,
+  dragActive,
+  archivoNombre,
+  fileInputRef,
+  handleSubmit,
 }) => (
-  <form className="comprobante-form" onSubmit={handleSubmitQR}>
+  <form className="comprobante-form" onSubmit={handleSubmit}>
     <h2>Pago con DeUna</h2>
     <button
       type="button"
@@ -108,6 +119,38 @@ const FormularioDeUna = ({
         className="qr-img-preview"
       />
     </div>
+    <div className="comprobante-group">
+      <label>Número de comprobante:</label>
+      <input
+        type="text"
+        name="comprobante_deuna"
+        value={comprobante}
+        onChange={handleChange}
+        required
+        maxLength={30}
+        placeholder="Ej: 00012345"
+      />
+    </div>
+    <div
+      className={`comprobante-dropzone${dragActive ? " drag-active" : ""}`}
+      onDragOver={handleDragOver}
+      onDragLeave={handleDragLeave}
+      onDrop={handleDrop}
+      onClick={() => fileInputRef.current && fileInputRef.current.click()}
+    >
+      <input
+        type="file"
+        accept=".pdf,image/png,image/jpeg,image/jpg"
+        ref={fileInputRef}
+        style={{ display: "none" }}
+        onChange={handleFileChange}
+      />
+      <span>
+        {archivoNombre
+          ? `Archivo seleccionado: ${archivoNombre}`
+          : "Arrastra aquí tu comprobante (PDF, PNG o JPG) o haz clic para seleccionar"}
+      </span>
+    </div>
     <button type="submit" className="comprobante-btn">
       Confirmar Pago
     </button>
@@ -115,7 +158,9 @@ const FormularioDeUna = ({
 );
 
 const SubirComprobante = () => {
-  // Estado para el formulario de transferencia
+  const navigate = useNavigate();
+
+  // Transferencia
   const [form, setForm] = useState({
     cedula: "",
     comprobante: "",
@@ -126,10 +171,15 @@ const SubirComprobante = () => {
   const [archivo, setArchivo] = useState(null);
   const fileInputRef = useRef();
 
-  // Estado para el formulario QR DeUna
+  // DeUna
   const [showDeUna, setShowDeUna] = useState(false);
+  const [comprobanteDeUna, setComprobanteDeUna] = useState("");
+  const [dragActiveDeUna, setDragActiveDeUna] = useState(false);
+  const [archivoNombreDeUna, setArchivoNombreDeUna] = useState("");
+  const [archivoDeUna, setArchivoDeUna] = useState(null);
+  const fileInputRefDeUna = useRef();
 
-  // Handlers Transferencia
+  // Transferencia handlers
   const handleChange = (e) => {
     const { name, value } = e.target;
     setForm((prev) => ({
@@ -193,30 +243,67 @@ const SubirComprobante = () => {
       alert("Por favor, sube un archivo comprobante.");
       return;
     }
-    alert("Comprobante enviado con éxito.");
-    setForm({
-      cedula: "",
-      comprobante: "",
-      monto: "",
-    });
-    setArchivo(null);
-    setArchivoNombre("");
-    if (fileInputRef.current) fileInputRef.current.value = "";
+    // Aquí puedes hacer el envío, luego redirigir
+    navigate("/gracias-mensaje");
   };
 
-  // Handlers DeUna QR
-  const handleSubmitQR = (e) => {
+  // DeUna handlers
+  const handleChangeDeUna = (e) => {
+    setComprobanteDeUna(e.target.value);
+  };
+
+  const handleFileChangeDeUna = (e) => {
+    const file = e.target.files[0];
+    if (file && validarArchivo(file)) {
+      setArchivoDeUna(file);
+      setArchivoNombreDeUna(file.name);
+    } else {
+      setArchivoDeUna(null);
+      setArchivoNombreDeUna("");
+      alert("Solo se permiten archivos PDF, PNG o JPG.");
+    }
+  };
+
+  const handleDragOverDeUna = (e) => {
     e.preventDefault();
-    alert("Pago DeUna confirmado.");
+    e.stopPropagation();
+    setDragActiveDeUna(true);
+  };
+
+  const handleDragLeaveDeUna = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setDragActiveDeUna(false);
+  };
+
+  const handleDropDeUna = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setDragActiveDeUna(false);
+    const file = e.dataTransfer.files[0];
+    if (file && validarArchivo(file)) {
+      setArchivoDeUna(file);
+      setArchivoNombreDeUna(file.name);
+    } else {
+      setArchivoDeUna(null);
+      setArchivoNombreDeUna("");
+      alert("Solo se permiten archivos PDF, PNG o JPG.");
+    }
+  };
+
+  const handleSubmitDeUna = (e) => {
+    e.preventDefault();
+    if (!archivoDeUna) {
+      alert("Por favor, sube un archivo comprobante.");
+      return;
+    }
+    // Aquí puedes hacer el envío, luego redirigir
+    navigate("/gracias-mensaje");
   };
 
   // Switchers
-  const onSwitchDeUna = () => {
-    setShowDeUna(true);
-  };
-  const onSwitchTransfer = () => {
-    setShowDeUna(false);
-  };
+  const onSwitchDeUna = () => setShowDeUna(true);
+  const onSwitchTransfer = () => setShowDeUna(false);
 
   return (
     <div className="comprobante-bg">
@@ -229,8 +316,17 @@ const SubirComprobante = () => {
         </div>
         {showDeUna ? (
           <FormularioDeUna
+            comprobante={comprobanteDeUna}
             onSwitchTransfer={onSwitchTransfer}
-            handleSubmitQR={handleSubmitQR}
+            handleChange={handleChangeDeUna}
+            handleFileChange={handleFileChangeDeUna}
+            handleDragOver={handleDragOverDeUna}
+            handleDragLeave={handleDragLeaveDeUna}
+            handleDrop={handleDropDeUna}
+            dragActive={dragActiveDeUna}
+            archivoNombre={archivoNombreDeUna}
+            fileInputRef={fileInputRefDeUna}
+            handleSubmit={handleSubmitDeUna}
           />
         ) : (
           <FormularioTransferencia

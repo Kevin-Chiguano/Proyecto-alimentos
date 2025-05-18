@@ -1,10 +1,12 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom"; 
 import './Donaciones.css';
 
 const Donaciones = () => {
   const [monto, setMonto] = useState('$');
   const [metodoPago, setMetodoPago] = useState('');
+
+  const navigate = useNavigate();
 
   const handleMontoChange = (e) => {
     let valor = e.target.value;
@@ -87,11 +89,9 @@ const Donaciones = () => {
                 </button>
               </div>
               <div className="col-6">
-                <button
-                  value="TRANSFERENCIA"
-                  onClick={handleMetodoPagoChange}
-                  className={`payment-btn form-control ${metodoPago === 'TRANSFERENCIA' ? 'selected' : ''}`}
-                >
+                <button 
+                onClick={() => navigate("/subir-comprobante")}
+                className={`payment-btn form-control ${metodoPago === 'TRANSFERENCIA' ? 'selected' : ''}`}>
                   TRANSFERENCIA
                 </button>
               </div>

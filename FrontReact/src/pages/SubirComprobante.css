@@ -61,8 +61,8 @@
 .deuna-switch-btn {
   margin-bottom: 14px;
   background: #fff6e3;
-  color: #b91ce0;
-  border: 1.5px solid #9b18a0;
+  color: #d91ce0;
+  border: 1.5px solid #840ea1;
   border-radius: 6px;
   padding: 10px 14px;
   font-size: 1.03rem;
@@ -71,7 +71,7 @@
   transition: background 0.15s, color 0.15s, border 0.2s;
 }
 .deuna-switch-btn:hover {
-  background: #b21ce0;
+  background: #7c1bbd;
   color: #fff;
 }
 
@@ -143,7 +143,7 @@
 }
 
 .qr-img-box {
-  min-height: 220px;
+  min-height: 120px;
   display: flex;
   align-items: center;
   justify-content: center;
