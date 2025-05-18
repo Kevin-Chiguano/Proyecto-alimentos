@@ -1,0 +1,38 @@
+/* Footer.css */
+.footer-naranja {
+  background-color: #e07a1c !important;
+  color: #000000 !important;
+  padding: 3rem 0;
+}
+
+.footer-titulo {
+  color: #000000 !important;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
+
+.footer-texto {
+  color: #000000 !important;
+  line-height: 1.6;
+}
+
+.footer-enlace {
+  color: #000000 !important;
+  text-decoration: none !important;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.footer-enlace:hover {
+  color: #333333 !important;
+  text-decoration: underline !important;
+}
+
+.footer-divisor {
+  border-color: rgba(0, 0, 0, 0.3) !important;
+  margin: 2rem 0;
+}
+
+.footer-contacto p {
+  margin-bottom: 0.4rem;
+}
