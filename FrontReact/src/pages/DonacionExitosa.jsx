@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom"; // <-- Importa useNavigate
 import "./DonacionExitosa.css";
 
 const Testimonio = () => (
@@ -23,10 +24,12 @@ const Testimonio = () => (
 const DonacionExitosa = () => {
   const [email, setEmail] = useState("");
   const [submitted, setSubmitted] = useState(false);
+  const navigate = useNavigate(); // <-- Hook para navegación
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setSubmitted(true);
+    // Redirige a la página de GraciasMensaje
+    navigate("/gracias-mensaje");
   };
 
   return (
@@ -43,29 +46,23 @@ const DonacionExitosa = () => {
           <p className="donacion-exitosa-p">
             ¿Quieres saber cómo ayudamos cada día? Déjanos tu correo y te contamos.
           </p>
-          {submitted ? (
-            <div className="donacion-exitosa-confirm">
-              ¡Gracias! Pronto recibirás noticias sobre nuestro impacto.
-            </div>
-          ) : (
-            <form className="donacion-exitosa-form" onSubmit={handleSubmit}>
-              <label htmlFor="email" className="donacion-exitosa-label">
-                Email
-              </label>
-              <input
-                id="email"
-                type="email"
-                className="donacion-exitosa-input"
-                placeholder="Email"
-                value={email}
-                required
-                onChange={(e) => setEmail(e.target.value)}
-              />
-              <button type="submit" className="donacion-exitosa-btn">
-                SÍ, QUIERO SABER MÁS
-              </button>
-            </form>
-          )}
+          <form className="donacion-exitosa-form" onSubmit={handleSubmit}>
+            <label htmlFor="email" className="donacion-exitosa-label">
+              Email
+            </label>
+            <input
+              id="email"
+              type="email"
+              className="donacion-exitosa-input"
+              placeholder="Email"
+              value={email}
+              required
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            <button type="submit" className="donacion-exitosa-btn">
+              SÍ, QUIERO SABER MÁS
+            </button>
+          </form>
           {/* Testimonio (solo móvil, debajo del botón) */}
           <Testimonio />
         </div>
