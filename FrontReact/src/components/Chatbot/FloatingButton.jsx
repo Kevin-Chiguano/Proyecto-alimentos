@@ -19,7 +19,7 @@ const FloatingButton = ({ onClick, isVisible }) => {
       }}
       onClick={onClick}
     >
-      <FiMessageSquare size={24} />
+      Ayuda Ahora
     </Button>
   );
 };

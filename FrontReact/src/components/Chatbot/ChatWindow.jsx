@@ -4,6 +4,7 @@ import { FiX, FiSend } from 'react-icons/fi';
 import PropTypes from 'prop-types';
 import { getBotResponse, getQuickOptions } from '../../Services/chatService';
 
+
 const ChatWindow = ({ show, onHide }) => {
   const [messages, setMessages] = useState([]);
   const [newMessage, setNewMessage] = useState('');
@@ -11,18 +12,17 @@ const ChatWindow = ({ show, onHide }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  // Cargar datos iniciales
   useEffect(() => {
     if (show) {
       const loadInitialData = async () => {
         setIsLoading(true);
         setError(null);
-        
+
         try {
           const [options] = await Promise.all([
             getQuickOptions(),
           ]);
-          
+
           setQuickOptions(options);
           setMessages([{
             text: '¡Hola! Soy el asistente virtual del Banco de Alimentos Quito. ¿En qué puedo ayudarte hoy?',
@@ -44,18 +44,33 @@ const ChatWindow = ({ show, onHide }) => {
 
       loadInitialData();
     } else {
-      // Resetear al cerrar
       setMessages([]);
       setQuickOptions([]);
       setError(null);
     }
   }, [show]);
 
+  const handleRedirect = (url) => {
+    window.location.href = url;
+    onHide(); // Cierra el chatbot después de la redirección (opcional)
+  };
+
   const handleSendMessage = async (e) => {
     e.preventDefault();
+    const messageToSend = newMessage.trim().toLowerCase();
+
+    if (messageToSend === 'donar') {
+      handleRedirect('http://localhost:5173/donaciones');
+      return;
+    }
+
+    if (messageToSend === 'cómo puedo donar alimentos?') {
+      handleRedirect('http://localhost:5173/donaciones');
+      return;
+    }
+
     if (!newMessage.trim() || isLoading) return;
 
-    // Agregar mensaje del usuario
     const userMessage = {
       text: newMessage,
       sender: 'user',
@@ -65,7 +80,6 @@ const ChatWindow = ({ show, onHide }) => {
     setNewMessage('');
     setError(null);
 
-    // Obtener respuesta
     setIsLoading(true);
     try {
       const botResponse = await getBotResponse(newMessage);
@@ -88,6 +102,13 @@ const ChatWindow = ({ show, onHide }) => {
   };
 
   const handleQuickOptionSelect = async (option) => {
+    const lowerOption = option.toLowerCase();
+
+    if (lowerOption === 'donar' || lowerOption === '¿cómo puedo donar alimentos?') {
+      handleRedirect('http://localhost:5173/donaciones');
+      return;
+    }
+
     const userMessage = {
       text: option,
       sender: 'user',
@@ -118,8 +139,8 @@ const ChatWindow = ({ show, onHide }) => {
   };
 
   return (
-    <Modal 
-      show={show} 
+    <Modal
+      show={show}
       onHide={onHide}
       backdrop={false}
       dialogClassName="modal-dialog-slideup"
@@ -137,23 +158,23 @@ const ChatWindow = ({ show, onHide }) => {
     >
       <Modal.Header className="baq-chat-header">
         <Modal.Title className="baq-chat-title">Asistente Virtual BAQ</Modal.Title>
-        <Button 
-          variant="link" 
-          className="baq-close-button" 
+        <Button
+          variant="link"
+          className="baq-close-button"
           onClick={onHide}
           aria-label="Cerrar chat"
         >
           <FiX size={24} />
         </Button>
       </Modal.Header>
-      
+
       <Modal.Body className="p-0" style={{ height: '400px' }}>
         <div className="d-flex flex-column h-100">
           {/* Área de mensajes */}
           <div className="baq-messages-container">
             {messages.map((msg, index) => (
-              <div 
-                key={index} 
+              <div
+                key={index}
                 className={`baq-message-container ${msg.sender === 'user' ? 'user' : 'bot'}`}
               >
                 <div className={`baq-message ${msg.sender === 'user' ? 'user' : 'bot'}`}>
@@ -164,7 +185,7 @@ const ChatWindow = ({ show, onHide }) => {
                 </div>
               </div>
             ))}
-            
+
             {isLoading && (
               <div className="baq-message-container bot">
                 <div className="baq-message bot typing-indicator">
@@ -173,7 +194,7 @@ const ChatWindow = ({ show, onHide }) => {
                 </div>
               </div>
             )}
-            
+
             {error && (
               <div className="baq-error-message">
                 {error}
@@ -182,12 +203,12 @@ const ChatWindow = ({ show, onHide }) => {
           </div>
 
           {/* Opciones rápidas */}
-          {quickOptions.length > 0 && !isLoading && messages.length <= 1 && (
+          {quickOptions.length > 0 && !isLoading && messages.length > 0 && messages[messages.length - 1]?.sender === 'bot' && (
             <div className="baq-quick-options">
               <p className="baq-quick-options-title">Selecciona una opción:</p>
               <div className="baq-options-container">
                 {quickOptions.map((option, index) => (
-                  <Button 
+                  <Button
                     key={index}
                     className="baq-option-button"
                     onClick={() => handleQuickOptionSelect(option)}
@@ -212,7 +233,7 @@ const ChatWindow = ({ show, onHide }) => {
                 disabled={isLoading}
                 aria-label="Escribe tu mensaje"
               />
-              <Button 
+              <Button
                 className="baq-send-button"
                 type="submit"
                 disabled={!newMessage.trim() || isLoading}
