@@ -1,62 +1,72 @@
-/* Estilos generales */
 .blog-page {
   max-width: 1200px;
   margin: 0 auto;
   padding: 2rem;
 }
 
+/* === Título === */
 .blog-title {
   font-size: 2.5rem;
-  display: flex; /* Alinea horizontalmente los span */
-  justify-content: space-between; /* Distribuye los span de manera equitativa */
-  align-items: center; /* Centra verticalmente los span */
-  margin-bottom: 2rem;/* Espacio inferior */
+  text-align: center;
+  margin-bottom: 2rem;
 }
 
 .blog-title-left {
-  color: #337ab7; /* Azul */
+  color: #f69a21; /* Azul */
 }
 
-.blog-title-right {
-  color: #ff7f27; /* Naranja */
-}
-
+/* === Contenido === */
 .content-container {
   display: flex;
   gap: 2rem;
-  justify-content: space-between;
+  align-items: flex-start;
 }
 
 .text-section {
   width: 60%;
 }
 
+/* === Imagen === */
 .image-section {
   width: 40%;
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 2rem;
 }
 
 .blog-image {
   width: 100%;
+  max-width: 100%;
   height: auto;
   border-radius: 8px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
-
-.cta-button {
-  background-color: #ff7f27;
-  color: white;
-  border: none;
-  padding: 1rem 2rem;
-  font-size: 1.2rem;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  margin-top: 2rem;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+/* === Responsive Design === */
+@media (max-width: 900px) {
+  .content-container {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  .text-section,
+  .image-section {
+    width: 100%;
+  }
+  .image-section {
+    order: -1; /* Mueve la imagen arriba del texto */
+    justify-content: center;
+    margin-bottom: 1.5rem;
+  }
 }
 
-.cta-button:hover {
-  background-color: #ff6347;
+@media (max-width: 600px) {
+  .blog-title {
+    font-size: 2rem;
+    margin-bottom: 1.2rem;
+  }
+  .blog-page {
+    padding: 1rem;
+  }
+  .blog-image {
+    border-radius: 6px;
+  }
 }
