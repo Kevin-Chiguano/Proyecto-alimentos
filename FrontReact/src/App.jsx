@@ -10,6 +10,7 @@ import "bootstrap/dist/css/bootstrap.min.css"
 import DonacionExitosa from "./pages/DonacionExitosa"
 import GraciasMensaje from "./pages/GraciasMensaje"
 import SubirComprobante from "./pages/SubirComprobante";
+import Chatbot from './components/Chatbot/Chatbot';
 
 
 function App() {
@@ -28,7 +29,9 @@ function App() {
         </Routes>
       </main>
       <Footer />
+       <Chatbot />
     </div>
+    
   )
 }
 

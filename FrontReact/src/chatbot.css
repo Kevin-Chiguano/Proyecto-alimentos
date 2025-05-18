@@ -1,4 +1,4 @@
-/* ===== CHATBOT STYLES - NARANJA ===== */
+/* ===== CHATBOT STYLES - NARANJA CON NOTIFICACIÓN ===== */
 /* Variables de color */
 :root {
   --color-primary: #FF7D33; /* Naranja principal */
@@ -9,9 +9,10 @@
   --color-bg: #FFFFFF; /* Fondo blanco */
   --color-bg-light: #FFF5F0; /* Fondo claro naranja */
   --color-border: #E0E0E0; /* Borde gris */
+  --color-notification: #FF5722; /* Color para notificaciones */
 }
 
-/* Contenedor principal */
+/* Contenedor principal del chatbot */
 .baq-chatbot-container {
   position: fixed;
   bottom: 20px;
@@ -20,11 +21,18 @@
   font-family: 'Arial', sans-serif;
 }
 
-/* Botón flotante - AYUDA AHORA */
-.baq-floating-button {
+/* Contenedor del botón flotante con notificación */
+.floating-button-container {
   position: fixed;
   bottom: 30px;
   right: 30px;
+  display: flex;
+  align-items: center;
+  z-index: 1001;
+}
+
+/* Botón flotante principal */
+.baq-floating-button {
   min-width: 120px;
   height: 50px;
   background-color: var(--color-primary);
@@ -36,19 +44,56 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  z-index: 1001;
   transition: all 0.3s ease;
   padding: 0 20px;
   font-weight: bold;
   text-transform: uppercase;
   font-size: 14px;
   letter-spacing: 0.5px;
+  position: relative;
 }
 
 .baq-floating-button:hover {
   background-color: var(--color-primary-dark);
   transform: translateY(-3px);
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+}
+
+/* Notificación "Quiero ayudar" */
+.help-notification {
+  position: absolute;
+  right: calc(100% + 10px);
+  background-color: var(--color-notification);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  animation: fadeInBounce 0.8s ease-in-out;
+  white-space: nowrap;
+}
+
+.help-notification span {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.notification-arrow {
+  position: absolute;
+  right: -8px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-top: 8px solid transparent;
+  border-bottom: 8px solid transparent;
+  border-left: 8px solid var(--color-notification);
+}
+
+/* Animación de la notificación */
+@keyframes fadeInBounce {
+  0% { opacity: 0; transform: translateX(20px); }
+  50% { opacity: 1; transform: translateX(-5px); }
+  100% { transform: translateX(0); }
 }
 
 /* Ventana del chat */
@@ -69,7 +114,7 @@
   animation: baq-slideUp 0.3s ease-out;
 }
 
-/* Cabecera */
+/* Cabecera del chat */
 .baq-chat-header {
   background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
   color: white;
@@ -270,24 +315,6 @@
   }
 }
 
-/* Responsive */
-@media (max-width: 576px) {
-  .baq-floating-button {
-    bottom: 20px;
-    right: 20px;
-    min-width: 100px;
-    height: 45px;
-    font-size: 12px;
-  }
-  
-  .baq-chat-window {
-    right: 10px;
-    bottom: 80px;
-    width: calc(100% - 20px);
-    max-height: 70vh;
-  }
-}
-
 /* Mensaje de bienvenida especial */
 .baq-welcome-message {
   text-align: center;
@@ -297,4 +324,50 @@
   font-weight: 500;
   border-bottom: 1px solid #F0F0F0;
   background-color: var(--color-bg-light);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .floating-button-container {
+    bottom: 20px;
+    right: 20px;
+  }
+  
+  .baq-floating-button {
+    min-width: 100px;
+    height: 45px;
+    font-size: 12px;
+    padding: 0 15px;
+  }
+  
+  .help-notification {
+    padding: 6px 12px;
+    font-size: 12px;
+    right: calc(100% + 8px);
+  }
+  
+  .baq-chat-window {
+    right: 10px;
+    bottom: 80px;
+    width: calc(100% - 20px);
+    max-height: 60vh;
+  }
+}
+
+@media (max-width: 480px) {
+  .help-notification {
+    display: none; /* Ocultar notificación en móviles muy pequeños */
+  }
+  
+  .baq-floating-button {
+    width: 50px;
+    height: 50px;
+    min-width: auto;
+    border-radius: 50%;
+    justify-content: center;
+  }
+  
+  .baq-floating-button span {
+    display: none;
+  }
 }

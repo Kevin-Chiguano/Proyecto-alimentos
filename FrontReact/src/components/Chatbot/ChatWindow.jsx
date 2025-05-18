@@ -52,7 +52,7 @@ const ChatWindow = ({ show, onHide }) => {
 
   const handleRedirect = (url) => {
     window.location.href = url;
-    onHide(); // Cierra el chatbot después de la redirección (opcional)
+    onHide(); 
   };
 
   const handleSendMessage = async (e) => {
