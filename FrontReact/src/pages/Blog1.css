@@ -10,7 +10,7 @@
   display: flex; /* Alinea horizontalmente los span */
   justify-content: space-between; /* Distribuye los span de manera equitativa */
   align-items: center; /* Centra verticalmente los span */
-  margin-bottom: 2rem;
+  margin-bottom: 2rem;/* Espacio inferior */
 }
 
 .blog-title-left {

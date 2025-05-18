@@ -1,5 +1,5 @@
 import React from 'react';
-import './BlogCard.css';
+import './BlogCard.css';//Cuadro Blog
 
 const BlogCard = ({ title, image }) => {
   return (

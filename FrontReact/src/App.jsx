@@ -17,7 +17,7 @@ function App() {
       <main className="main-content">
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/blog1" element={<Blog1 />} />
+          <Route path="/blog1" element={<Blog1 />} /> 
           <Route path="/blog2" element={<Blog2 />} />
           <Route path="/donaciones" element={<Donaciones />} />
           <Route path="/donacion-exitosa" element={<DonacionExitosa />} />

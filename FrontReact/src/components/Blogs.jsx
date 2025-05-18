@@ -3,6 +3,7 @@ import { Container, Row, Col } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import BlogCard from './BlogCard';
 
+//Blogs
 const Blogs = () => {
   return (
     <section id="Blogs" className="py-5 bg-light">

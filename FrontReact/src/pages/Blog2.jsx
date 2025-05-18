@@ -1,6 +1,7 @@
 import React from 'react';
 import './Blog2.css'; // Importamos los estilos personalizados
 
+//Blog2
 const Blog2 = () => {
   return (
     <div className="blog-page">

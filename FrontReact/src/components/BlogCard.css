@@ -9,13 +9,6 @@
   cursor: pointer;
 }
 
-.underline {
-  width: 50%;
-  height: 2px;
-  background-color: #7ac142; /* Verde claro */
-  margin: 0 auto;
-}
-
 .blog-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);

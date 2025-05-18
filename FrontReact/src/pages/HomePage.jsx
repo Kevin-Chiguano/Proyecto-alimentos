@@ -5,7 +5,7 @@ import Process from '../components/Process';
 import CTA from '../components/CTA';
 import BackendStatus from '../components/BackendStatus';
 import Chatbot from '../components/Chatbot/Chatbot';
-import Blogs from '../components/Blogs';
+import Blogs from '../components/Blogs';//
 
 
 
