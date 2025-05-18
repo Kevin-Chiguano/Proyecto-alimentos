@@ -1,7 +1,7 @@
 import * as XLSX from 'xlsx';
 
 // Ruta relativa al archivo Excel en la carpeta public
-const EXCEL_FILE_PATH = '/preguntas_respuestas.xlsx'; // Asegúrate que el nombre del archivo coincida
+const EXCEL_FILE_PATH = '/respuestas.xlsx'; // Asegúrate que el nombre del archivo coincida
 
 let cachedResponses = {};
 let cachedOptions = [];
