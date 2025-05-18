@@ -6,11 +6,14 @@ import Donaciones from './pages/Donaciones'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import './index.css'
+
 import "bootstrap/dist/css/bootstrap.min.css"
 import DonacionExitosa from "./pages/DonacionExitosa"
 import GraciasMensaje from "./pages/GraciasMensaje"
+import DonadorRecurrente from './pages/DonadorRecurrente';
 import SubirComprobante from "./pages/SubirComprobante";
 import Chatbot from './components/Chatbot/Chatbot';
+import PaginaPagoTarjeta from "./pages/PaginaPagoTarjeta";
 
 
 function App() {
@@ -25,7 +28,12 @@ function App() {
           <Route path="/donaciones" element={<Donaciones />} />
           <Route path="/donacion-exitosa" element={<DonacionExitosa />} />
           <Route path="/gracias-mensaje" element={<GraciasMensaje />} />
-          <Route path="/subir-comprobante" element={<SubirComprobante />} />
+          <Route path="/subir-comprobante" element={<SubirComprobante />} /> 
+          <Route path="/donador-recurrente" element={<DonadorRecurrente />} /> 
+          <Route path="/pago-tarjeta" element={<PaginaPagoTarjeta />} />
+        
+
+          
         </Routes>
       </main>
       <Footer />
