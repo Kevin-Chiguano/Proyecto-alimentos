@@ -1,0 +1,46 @@
+/* Estilos generales */
+.blog-card {
+  position: relative;
+  border: 2px solid #ff7f27; /* Borde naranja */
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.blog-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.blog-card-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  transition: all 0.3s ease;
+}
+
+.blog-card-content {
+  padding: 1rem;
+  background-color: rgba(255, 255, 255, 0.9); /* Fondo semi-transparente */
+  text-align: center;
+}
+
+.blog-card-title {
+  font-size: 1.2rem;
+  color: #333;
+  margin: 0.5rem 0;
+}
+
+.blog-card-read-more {
+  display: inline-block;
+  margin-top: 0.5rem;
+  color: #ff7f27;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.blog-card-read-more:hover {
+  text-decoration: underline;
+}
