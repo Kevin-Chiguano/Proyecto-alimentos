@@ -7,7 +7,9 @@ import Header from './components/Header'
 import Footer from './components/Footer'
 import './index.css'
 import "bootstrap/dist/css/bootstrap.min.css"
-import DonacionExitosa from "./pages/DonacionExitosa";
+import DonacionExitosa from "./pages/DonacionExitosa"
+import GraciasMensaje from "./pages/GraciasMensaje"
+import SubirComprobante from "./pages/SubirComprobante";
 
 
 function App() {
@@ -21,6 +23,8 @@ function App() {
           <Route path="/blog2" element={<Blog2 />} />
           <Route path="/donaciones" element={<Donaciones />} />
           <Route path="/donacion-exitosa" element={<DonacionExitosa />} />
+          <Route path="/gracias-mensaje" element={<GraciasMensaje />} />
+          <Route path="/subir-comprobante" element={<SubirComprobante />} />
         </Routes>
       </main>
       <Footer />

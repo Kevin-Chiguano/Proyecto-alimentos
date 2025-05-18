@@ -1,0 +1,12 @@
+/* Impact.css */
+.impact-value {
+  color: #e07a1c !important; /* Color naranja amarillento especificado */
+}
+
+.impact-card {
+  transition: transform 0.3s ease;
+}
+
+.impact-card:hover {
+  transform: translateY(-5px);
+}

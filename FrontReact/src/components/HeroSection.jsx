@@ -1,37 +1,35 @@
-import { Container, Row, Col, Button } from 'react-bootstrap'
+import { Container, Button } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
+import './HeroSection.css'
 
 const HeroSection = () => {
   return (
-    <section id="inicio" className="hero-section py-5 bg-light">
-      <Container>
-        <Row className="align-items-center">
-          <Col lg={6} className="mb-4 mb-lg-0">
-            <h1 className="display-4 fw-bold mb-4">¿QUIERES DONAR ALIMENTOS?</h1>
-            <h2 className="h3 mb-3">¿QUIERES DONAR DINERO?</h2>
-            <h2 className="h3 mb-4">¿QUIERES SER VOLUNTARIO?</h2>
-            <div className="d-flex flex-wrap gap-3">
-              <Button 
-                as={Link}
-                to="/donaciones"
-                variant="warning" 
-                size="lg" 
-                className="text-white"
-              >
-                Donar ahora
-              </Button>
-              <Button variant="outline-warning" size="lg">Ser voluntario</Button>
-            </div>
-          </Col>
-          <Col lg={6}>
-            <img 
-              src="https://img.europapress.es/fotoweb/fotonoticia_20161125191701_690.jpg" 
-              alt="Banco de Alimentos" 
-              className="img-fluid rounded shadow"
-            />
-          </Col>
-        </Row>
+    <section id="inicio" className="hero-section-custom">
+      <Container className="hero-content text-center">
+        <div className="hero-buttons">
+          <Button as={Link} to="/donaciones" size="lg" className="hero-custom-btn shadow-button">
+            DONAR ALIMENTOS
+          </Button>
+          <Button as={Link} to="/donaciones" size="lg" className="hero-custom-btn shadow-button">
+            DONAR DINERO
+          </Button>
+          <Button as={Link} to="/donaciones" size="lg" className="hero-custom-btn shadow-button">
+            SER VOLUNTARIO
+          </Button>
+        </div>
       </Container>
+
+      <div className="hero-footer">
+        <h3>¡DONAR ES IGUAL A INVERTIR EN UN ECUADOR SIN HAMBRE, ÚNETE!</h3>
+        <p>
+          El sistema de gestión BAQ es integral y la participación de otros actores es indispensable, 
+          la empresa privada de alimentos y no alimentos, organizaciones sociales, instituciones educativas, 
+          organismos internacionales, empresa pública, colectivos y voluntarios.
+        </p>
+        <p>
+          Sé el puente entre la abundancia y la carencia de alimentos.
+        </p>
+      </div>
     </section>
   )
 }

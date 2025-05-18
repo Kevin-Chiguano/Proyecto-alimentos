@@ -1,4 +1,5 @@
 import { Container, Row, Col, Card } from 'react-bootstrap'
+import './Impact.css' // Importar el CSS personalizado
 
 const Impact = () => {
   const stats = [
@@ -15,9 +16,9 @@ const Impact = () => {
         <Row className="g-4 text-center">
           {stats.map((stat, index) => (
             <Col md={6} lg={3} key={index}>
-              <Card className="h-100 border-0 shadow-sm">
+              <Card className="h-100 border-0 shadow-sm impact-card">
                 <Card.Body className="p-4">
-                  <h3 className="text-warning">{stat.value}</h3>
+                  <h3 className="impact-value">{stat.value}</h3>
                   <p className="fw-bold">{stat.label}</p>
                   <small className="text-muted">{stat.period}</small>
                 </Card.Body>

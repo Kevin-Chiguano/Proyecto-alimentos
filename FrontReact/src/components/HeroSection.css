@@ -1,0 +1,82 @@
+.hero-section-custom {
+  background-image: url("https://img.europapress.es/fotoweb/fotonoticia_20161125191701_690.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  margin: 0;
+  padding: 0;
+}
+
+.hero-content {
+  padding-bottom: 60px; /* Ahora baja los botones */
+}
+
+.hero-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 20px;
+}
+
+.hero-custom-btn {
+  background-color: #e07a1c !important;
+  border: none !important;
+  padding: 0.8rem 2rem;
+  font-weight: bold;
+  color: white !important;
+  border-radius: 8px;
+  transition: all 0.3s ease-in-out;
+  min-width: 220px;
+  position: relative;
+  z-index: 2;
+}
+
+.hero-custom-btn:hover {
+  background-color: #cf6b0d !important;
+  transform: scale(1.05);
+}
+
+/* Sombra individual */
+.shadow-button {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+}
+
+/* Barra inferior ocupa todo el ancho y fondo naranja bien pegado abajo */
+.hero-footer {
+  background-color: #e07a1c;
+  color: white;
+  text-align: center;
+  padding: 40px 20px;
+  margin-top: 0;
+  width: 100%;
+}
+
+/* Texto dentro del footer */
+.hero-footer h3 {
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.hero-footer p {
+  margin: 0 auto 10px;
+  max-width: 800px;
+  font-size: 1rem;
+}
+
+/* Móvil: botones en columna */
+@media (max-width: 768px) {
+  .hero-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero-custom-btn {
+    width: 100%;
+    max-width: 300px;
+  }
+}

@@ -1,0 +1,50 @@
+/* CTA.css */
+.cta-section {
+  background-color: #e07a1c !important;
+  color: white !important;
+  padding: 4rem 0;
+}
+
+.cta-title {
+  font-weight: 700 !important;
+  margin-bottom: 1.5rem !important;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.cta-text {
+  font-size: 1.25rem;
+  margin-bottom: 2rem !important;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cta-btn-primary {
+  background-color: white !important;
+  color: #e07a1c !important;
+  border: none !important;
+  padding: 0.75rem 2rem;
+  font-weight: 600 !important;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.cta-btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+  background-color: #f8f9fa !important;
+}
+
+.cta-btn-outline {
+  background-color: transparent !important;
+  border: 2px solid white !important;
+  color: white !important;
+  padding: 0.75rem 2rem;
+  font-weight: 600 !important;
+  transition: all 0.3s ease;
+}
+
+.cta-btn-outline:hover {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  transform: translateY(-3px);
+}

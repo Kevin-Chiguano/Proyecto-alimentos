@@ -1,4 +1,5 @@
 import { Container, Row, Col, Card } from 'react-bootstrap'
+import './Process.css'
 
 const Process = () => {
   const steps = [
@@ -23,14 +24,14 @@ const Process = () => {
   return (
     <section id="proceso" className="py-5 bg-white">
       <Container>
-        <h2 className="text-center fw-bold mb-5">Nuestro Proceso</h2>
+        <h2 className="text-center fw-bold section-title">Nuestro Proceso</h2>
         <Row className="g-4">
           {steps.map((step, index) => (
             <Col md={6} lg={3} key={index}>
-              <Card className="h-100 border-0 shadow-sm">
+              <Card className="h-100 process-card">
                 <Card.Body className="p-4">
-                  <h4 className="text-warning">{step.title}</h4>
-                  <p className="mt-3">{step.description}</p>
+                  <h4 className="process-title">{step.title}</h4>
+                  <p className="process-description">{step.description}</p>
                 </Card.Body>
               </Card>
             </Col>
