@@ -4,16 +4,17 @@ function App() {
   const [mensaje, setMensaje] = useState('');
 
   useEffect(() => {
-    fetch('http://localhost:3000')
-      .then(res => res.text())
-      .then(data => setMensaje(data))
+    fetch('http://localhost:3000/mensaje')
+      .then(res => res.json())
+      .then(data => setMensaje(data.mensaje))
       .catch(err => console.error('Error al conectar con el backend:', err));
   }, []);
 
   return (
-    <div>
-      
-      <p>Respuesta del backend: {mensaje}</p>
+    <div style={{ padding: '2rem' }}>
+      <h1>Frontend con React + Vite</h1>
+      <h2>Mensaje del backend:</h2>
+      <p>{mensaje}</p>
     </div>
   );
 }
