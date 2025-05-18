@@ -1,22 +1,23 @@
-import { useEffect, useState } from 'react';
+import { Routes, Route } from 'react-router-dom'
+import HomePage from './pages/HomePage'
+import Donaciones from './pages/Donaciones'
+import Header from './components/Header'
+import Footer from './components/Footer'
+import './index.css'
 
 function App() {
-  const [mensaje, setMensaje] = useState('');
-
-  useEffect(() => {
-    fetch('http://localhost:3000/mensaje')
-      .then(res => res.json())
-      .then(data => setMensaje(data.mensaje))
-      .catch(err => console.error('Error al conectar con el backend:', err));
-  }, []);
-
   return (
-    <div style={{ padding: '2rem' }}>
-      <h1>Frontend con React + Vite</h1>
-      <h2>Mensaje del backend:</h2>
-      <p>{mensaje}</p>
+    <div className="app-container">
+      <Header />
+      <main className="main-content">
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/donaciones" element={<Donaciones />} />
+        </Routes>
+      </main>
+      <Footer />
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

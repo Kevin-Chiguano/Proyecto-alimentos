@@ -1,68 +1,79 @@
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  --bs-orange: #fd7e14;
+  --bs-warning: #fd7e14;
+  --bs-warning-rgb: 253, 126, 20;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
-body {
-  margin: 0;
+/* Layout */
+.app-container {
   display: flex;
-  place-items: center;
-  min-width: 320px;
+  flex-direction: column;
   min-height: 100vh;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+.main-content {
+  flex: 1;
+  padding: 20px 0;
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+/* Estilos generales */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
+section {
+  padding: 5rem 0;
+}
+
+/* Componentes Bootstrap personalizados */
+.btn-warning {
+  background-color: var(--bs-orange);
+  border-color: var(--bs-orange);
+  color: white !important;
+}
+
+.btn-warning:hover {
+  background-color: #e67312;
+  border-color: #e67312;
+}
+
+.btn-outline-warning {
+  color: var(--bs-orange);
+  border-color: var(--bs-orange);
+}
+
+.btn-outline-warning:hover {
+  background-color: var(--bs-orange);
+  color: white !important;
+}
+
+.text-warning {
+  color: var(--bs-orange) !important;
+}
+
+.bg-warning {
+  background-color: var(--bs-orange) !important;
+}
+
+/* Tarjetas */
+.card {
+  transition: transform 0.3s ease;
+  border: none;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  section {
+    padding: 3rem 0;
   }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
+  
+  .display-4 {
+    font-size: 2.5rem;
   }
 }
