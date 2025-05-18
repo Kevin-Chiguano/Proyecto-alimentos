@@ -1,36 +1,43 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom"; // <-- Importa useNavigate
 import "./DonacionExitosa.css";
+
+const Testimonio = () => (
+  <div className="donacion-exitosa-img-wrap">
+    <img
+      src="https://live.staticflickr.com/65535/52212749698_d6ccd898a9_c.jpg"
+      alt="Beneficiario"
+      className="donacion-exitosa-img"
+    />
+    <div className="donacion-exitosa-texto-img">
+      <span>
+        Este banco de alimentos ha sido un salvavidas para mi familia. No solo nos proporciona la comida que necesitamos, sino también un sentido de esperanza y comunidad. Estoy muy agradecido por la ayuda.
+      </span>
+      <br />
+      <span className="donacion-exitosa-nombre">
+        Maria.C, beneficiario
+      </span>
+    </div>
+  </div>
+);
 
 const DonacionExitosa = () => {
   const [email, setEmail] = useState("");
   const [submitted, setSubmitted] = useState(false);
+  const navigate = useNavigate(); // <-- Hook para navegación
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setSubmitted(true);
+    // Redirige a la página de GraciasMensaje
+    navigate("/gracias-mensaje");
   };
 
   return (
     <div className="donacion-exitosa-bg">
       <div className="donacion-exitosa-content">
-        {/* Testimonio */}
+        {/* Testimonio (sólo escritorio) */}
         <div className="donacion-exitosa-testimonio">
-          <div className="donacion-exitosa-img-wrap">
-            <img
-              src="https://img.freepik.com/foto-gratis/vista-frontal-hombre-sonriente-posando-cv_23-2149927614.jpg?semt=ais_hybrid&w=740"
-              alt="Beneficiario"
-              className="donacion-exitosa-img"
-            />
-            <div className="donacion-exitosa-texto-img">
-              <span>
-                Este banco de alimentos ha sido un salvavidas para mi familia. No solo nos proporciona la comida que necesitamos, sino también un sentido de esperanza y comunidad. Estoy muy agradecido por la ayuda.
-              </span>
-              <br />
-              <span className="donacion-exitosa-nombre">
-                Juan L., beneficiario
-              </span>
-            </div>
-          </div>
+          <Testimonio />
         </div>
         {/* Mensaje y formulario */}
         <div className="donacion-exitosa-mensaje-form">
@@ -39,32 +46,27 @@ const DonacionExitosa = () => {
           <p className="donacion-exitosa-p">
             ¿Quieres saber cómo ayudamos cada día? Déjanos tu correo y te contamos.
           </p>
-          {submitted ? (
-            <div className="donacion-exitosa-confirm">
-              ¡Gracias! Pronto recibirás noticias sobre nuestro impacto.
-            </div>
-          ) : (
-            <form className="donacion-exitosa-form" onSubmit={handleSubmit}>
-              <label htmlFor="email" className="donacion-exitosa-label">
-                Email
-              </label>
-              <input
-                id="email"
-                type="email"
-                className="donacion-exitosa-input"
-                placeholder="Email"
-                value={email}
-                required
-                onChange={(e) => setEmail(e.target.value)}
-              />
-              <button type="submit" className="donacion-exitosa-btn">
-                SÍ, QUIERO SABER MÁS
-              </button>
-            </form>
-          )}
+          <form className="donacion-exitosa-form" onSubmit={handleSubmit}>
+            <label htmlFor="email" className="donacion-exitosa-label">
+              Email
+            </label>
+            <input
+              id="email"
+              type="email"
+              className="donacion-exitosa-input"
+              placeholder="Email"
+              value={email}
+              required
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            <button type="submit" className="donacion-exitosa-btn">
+              SÍ, QUIERO SABER MÁS
+            </button>
+          </form>
+          {/* Testimonio (solo móvil, debajo del botón) */}
+          <Testimonio />
         </div>
       </div>
-
       {/* Franja naranja informativa */}
       <div className="donacion-exitosa-franja">
         Más de 330 toneladas de comida rescatada en 2023

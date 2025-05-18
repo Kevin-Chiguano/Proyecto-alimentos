@@ -77,6 +77,7 @@
   flex-direction: column;
   align-items: center;
   gap: 8px;
+  position: relative;
 }
 
 .donacion-exitosa-mensaje-form h2 {
@@ -176,6 +177,7 @@
   border-radius: 0 0 18px 18px;
 }
 
+/* --- MOBILE: Imagen debajo del botón --- */
 @media (max-width: 900px) {
   .donacion-exitosa-content {
     flex-direction: column;
@@ -186,14 +188,26 @@
   .donacion-exitosa-testimonio {
     width: 100%;
     justify-content: center;
+    /* Oculta el testimonio en columna principal */
+    display: none;
   }
-  .donacion-exitosa-img-wrap {
+  /* Mostramos la imagen y testimonio DENTRO del formulario en móvil */
+  .donacion-exitosa-mensaje-form .donacion-exitosa-img-wrap {
+    display: flex;
     flex-direction: column;
     align-items: center;
     gap: 18px;
+    margin-top: 28px;
     width: 100%;
   }
-  .donacion-exitosa-texto-img {
+  .donacion-exitosa-mensaje-form .donacion-exitosa-img {
+    margin-bottom: 0px;
+    max-width: 320px;
+    min-width: 120px;
+    width: 100%;
+    height: auto;
+  }
+  .donacion-exitosa-mensaje-form .donacion-exitosa-texto-img {
     max-width: 98vw;
     min-width: unset;
     width: 100%;
@@ -202,16 +216,17 @@
     border-top: 5px solid #e07a1c;
     border-radius: 0 0 12px 12px;
   }
-  .donacion-exitosa-img {
-    margin-bottom: 0px;
-    max-width: 320px;
-    min-width: 120px;
-    width: 100%;
-    height: auto;
-  }
   .donacion-exitosa-mensaje-form {
     width: 100%;
     padding: 24px 5vw 18px 5vw;
     min-width: 0;
+    position: relative;
+  }
+}
+
+/* Desktop: Imagen y testimonio sólo a la izquierda */
+@media (min-width: 901px) {
+  .donacion-exitosa-mensaje-form .donacion-exitosa-img-wrap {
+    display: none !important;
   }
 }

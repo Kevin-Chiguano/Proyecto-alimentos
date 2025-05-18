@@ -10,7 +10,7 @@ const Header = () => {
   return (
     <Navbar expand="lg" className="py-3 bg-white shadow-sm">
       <Container>
-        <Navbar.Brand as={Link} to="/" className="brand-custom">
+        <Navbar.Brand as={Link} to="/" className="fw-bold fs-3">
           Banco de ALIMENTOS <small className="d-block">Quito</small>
         </Navbar.Brand>
 
